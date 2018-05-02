@@ -34,6 +34,12 @@ const webpackConfigDev = {
         //     multiStep: true
         // }),
     ],
+    resolve: {
+        alias: {
+            app: APP_PATH
+        },
+        extensions: ['', '.js', '.jsx', '.css', '.png', '.jpg']
+    },
     devServer:{
         // historyApiFallback: true,
         // contentBase: path.join(__dirname, "../"),

@@ -1,7 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import Home from './Home'
+import { Home } from 'app/containers'
+
+
 
 
 var div = document.createElement('div')
