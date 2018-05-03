@@ -1,9 +1,12 @@
 import React from 'react'
-// import { connect }	from 'react-redux'
-// import * as homeActions from 'app/actions/home.action.js'
-// import './index.less'
+import { connect }	from 'react-redux'
+import * as homeActions from 'app/actions/home.action.js'
+import './index.scss'
+import { Button } from 'antd'
+import 'antd/dist/antd.css'
+// import { Link, } from 'react-router-dom'
 
-// @connect(state => state)
+@connect(state => state)
 export default
 class Home extends React.Component {
 	// componentDidMount() {
@@ -13,11 +16,20 @@ class Home extends React.Component {
 	// }
 
 	render() {
-		// const { dispatch, homeState } = this.props
+		const { dispatch, homeState, history } = this.props
+
+		console.log('issuedate', homeState.get('issuedate'));
 
 		return (
 			<div className="color">
-				huhu
+				huhu00000707
+				<span onClick={() => history.push('/cxpz')}>cxv</span>
+
+				<div onClick={() => dispatch(homeActions.addTodo())}>
+					切换
+				</div>
+
+				<Button type="primary">Primary</Button>
 			</div>
 		)
 	}

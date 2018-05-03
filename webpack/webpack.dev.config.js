@@ -17,11 +17,19 @@ const webpackConfigDev = {
         xfnidx: [
             'webpack/hot/only-dev-server',
             'webpack-dev-server/client?http://localhost:3800',
-            path.resolve(APP_PATH, 'index')
+            path.resolve(APP_PATH, 'containers/index')
         ], //入口文件
         xfnpkg: [
+            'antd',
+            // 'es6-shim',
+            // 'history',
+            // 'immutable',
             'react',
             'react-dom'
+            // 'react-redux',
+            // 'redux',
+            // 'redux-thunk',
+            // 'react-router-dom'
         ]
     },
     plugins:[
@@ -31,15 +39,10 @@ const webpackConfigDev = {
         }),
         new webpack.HotModuleReplacementPlugin()
         // new webpack.HotModuleReplacementPlugin({
+        //     如何配置增量编译
         //     multiStep: true
-        // }),
+        // })
     ],
-    resolve: {
-        alias: {
-            app: APP_PATH
-        },
-        extensions: ['', '.js', '.jsx', '.css', '.png', '.jpg']
-    },
     devServer:{
         // historyApiFallback: true,
         // contentBase: path.join(__dirname, "../"),
