@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');//html插件，需要安装依赖项 npm install htmp-webpack-plugin --save-dev
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");//压缩css文件
-const autoprefixer = require("autoprefixer");//压缩css文件
+//压缩css文件
 
 const NODE_ENV = process.env.NODE_ENV
 const DEVICE_TYPE = process.env.NODE_DEVICE
@@ -38,9 +38,9 @@ module.exports = {
         },
         extensions: ['.js', '.jsx', '.scss', '.png', '.jpg']
     },
-    performance: {
-        hints: false
-    },
+    // performance: {
+    //     hints: false
+    // },
     module:{
         rules:[
             {
@@ -64,9 +64,9 @@ module.exports = {
                     {
                         loader: "css-loader" // translates CSS into CommonJS
                     }, {
-                        loader: "sass-loader" // compiles Sass to CSS
-                    }, {
                         loader: "postcss-loader" // compiles Sass to CSS
+                    }, {
+                        loader: "sass-loader" // compiles Sass to CSS
                     }
                 ],
                 // include: SRC_DEVICE_PATH
@@ -92,21 +92,21 @@ module.exports = {
     },
     plugins:[
         new HtmlWebpackPlugin({
-            filename: './app/index.html',
-            template: path.resolve(SRC_DEVICE_PATH, 'template/template.html'),
-            inject: 'body',
+            title: 'xfnidx',
+			chunks: ['xfnpkg', 'xfnidx'], //需要引入的chunk，不配置就会引入所有页面的资源
+			filename: './app/index.html', //生成的html存放路径，相对于path
+			template: path.resolve(SRC_DEVICE_PATH, 'template/template.html'), //html模板路径
+			inject: 'body', //js插入的位置，true/'head'/'body'/false
+			hash: true, //为静态资源生成hash值
+			minify: { //压缩HTML文件
+				removeComments: true, //移除HTML中的注释
+				collapseWhitespace: true //删除空白符与换行符
+			}
         }),
+        new webpack.optimize.OccurrenceOrderPlugin(),
         new MiniCssExtractPlugin({
             filename: "css/[name].css",
             chunkFilename: "css/[id].css"
-        }),
-        new webpack.LoaderOptionsPlugin({
-            test: /\.scss/,
-            options: {
-                postcss: function() {
-                    return [autoprefixer({ browsers: ['last 2 versions'] })]
-                }
-            }
         })
     ]
 }

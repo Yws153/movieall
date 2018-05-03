@@ -18,19 +18,7 @@ const webpackConfigDev = {
             'webpack/hot/only-dev-server',
             'webpack-dev-server/client?http://localhost:3800',
             path.resolve(APP_PATH, 'containers/index')
-        ], //入口文件
-        xfnpkg: [
-            'antd',
-            // 'es6-shim',
-            // 'history',
-            // 'immutable',
-            'react',
-            'react-dom'
-            // 'react-redux',
-            // 'redux',
-            // 'redux-thunk',
-            // 'react-router-dom'
-        ]
+        ] //入口文件
     },
     plugins:[
         // new openBrowserPlugin({url:"http://localhost:3800/build/desktop/app/index.html"}),
@@ -46,6 +34,7 @@ const webpackConfigDev = {
     devServer:{
         // historyApiFallback: true,
         // contentBase: path.join(__dirname, "../"),
+        disableHostCheck: true,
         publicPath: `/build/${DEVICE_TYPE}`,
         hot: true,
         inline: true,
