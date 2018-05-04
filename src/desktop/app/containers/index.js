@@ -1,6 +1,3 @@
-// import Home from './Home'
-//
-// export { Home }
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore, applyMiddleware } from 'redux'

@@ -2,6 +2,7 @@ import React from 'react'
 import { connect }	from 'react-redux'
 // import * as homeActions from 'app/actions/home.action.js'
 
+
 @connect(state => state)
 export default
 class Cxpz extends React.Component {
