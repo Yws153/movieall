@@ -4,7 +4,7 @@ import { connect }	from 'react-redux'
 
 
 @connect(state => state)
-export default
+
 class Cxpz extends React.Component {
 	// componentDidMount() {
 	// }
@@ -24,3 +24,5 @@ class Cxpz extends React.Component {
 		)
 	}
 }
+
+module.exports = Cxpz

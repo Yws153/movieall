@@ -1,11 +1,13 @@
 import React from 'react'
 import { Router, Route, Link } from 'react-router-dom'
+import asyncComponent from './AsyncComponent'
 
 import createHistory from 'history/createHashHistory'
 const history = createHistory()
 const location = history.location
 
 import Home from './Home'
+const Cxpz = asyncComponent(() => import("./Cxpz"))
 // import Cxpz from './Cxpz'
 
 const CreateRouter = () => (
@@ -16,12 +18,7 @@ const CreateRouter = () => (
                 <li><Link to="/cxpz">Cxpz</Link></li>
             </ul>
             <Route path="/" exact component={Home} />
-            <Route path="/cxpz" component={(nextState, cb) => {
-                require.ensure([], (require) => {
-                    cb(null, require('./Cxpz').default)
-                })
-            }}
-            />
+            <Route path="/cxpz" component={Cxpz}/>
         </div>
     </Router>
 )

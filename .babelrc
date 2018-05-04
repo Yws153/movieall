@@ -2,11 +2,20 @@
     "presets": [
       "latest",
       "react",
-      "stage-2"
+      "stage-1"
     ],
     "plugins": [
         "transform-decorators-legacy",
-        ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css"}]
+        ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css"}],
+        [
+            "transform-runtime",
+            {
+                "helpers": false,
+                "polyfill": false,
+                "regenerator": true,
+                "moduleName": "babel-runtime"
+            }
+        ]
     ],
     "compact": false
 }
