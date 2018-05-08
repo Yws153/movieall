@@ -36,7 +36,7 @@ module.exports = {
         alias: {
             app: APP_PATH
         },
-        extensions: ['.js', '.jsx', '.scss', '.png', '.jpg']
+        extensions: ['.js', '.jsx', '.scss', '.png', '.jpg', '.json']
     },
     // performance: {
     //     hints: false
@@ -87,6 +87,10 @@ module.exports = {
             {
                 test:/\.(svg|png)$/,
                 use:'file-loader', //加载文件
+            },
+            {
+                test: /\.json$/,
+                use:'json-loader', //加载json文件
             }
         ]
     },

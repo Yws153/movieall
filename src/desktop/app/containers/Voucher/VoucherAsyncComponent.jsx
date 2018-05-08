@@ -1,10 +1,10 @@
 import React, { Component } from "react"
 
-export default function asyncComponent(componentName) {
+export default function voucherAsyncComponent(componentName) {
 
     const importComponent = () => import(`./${componentName}`)
 
-    class AsyncComponent extends Component {
+    class VoucherAsyncComponent extends Component {
         constructor(props) {
             super(props)
 
@@ -27,5 +27,5 @@ export default function asyncComponent(componentName) {
         }
     }
 
-    return AsyncComponent
+    return VoucherAsyncComponent
 }

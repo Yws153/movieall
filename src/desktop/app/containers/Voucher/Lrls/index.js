@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect }	from 'react-redux'
 // import * as homeActions from 'app/actions/home.action.js'
-
+import { Button } from 'antd'
 
 @connect(state => state)
 
-class Cxpz extends React.Component {
+class Lrls extends React.Component {
 	// componentDidMount() {
 	// }
 	// shouldComponentUpdate(nextprops) {
@@ -19,10 +19,11 @@ class Cxpz extends React.Component {
 
 		return (
 			<div className="color">
-				ujujh
+				录入流水
+				{/* <Button type="primary">Primary</Button> */}
 			</div>
 		)
 	}
 }
 
-module.exports = Cxpz
+module.exports = Lrls
