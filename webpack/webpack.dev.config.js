@@ -21,7 +21,7 @@ const webpackConfigDev = {
         ] //入口文件
     },
     plugins:[
-        // new openBrowserPlugin({url:"http://localhost:3800/build/desktop/app/index.html"}),
+        new openBrowserPlugin({url:"http://localhost:3800/build/desktop/app/index.html"}),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify("development")
         }),
